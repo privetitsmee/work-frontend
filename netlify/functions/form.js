@@ -3,11 +3,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 const app = express();
-const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 const corsOptions = {
-  origin: 'https://stalwart-phoenix-a575dc.netlify.app/', // Замените на URL вашего сайта на Netlify
+  origin: 'https://stalwart-phoenix-a575dc.netlify.app', // Замените на URL вашего сайта на Netlify
   methods: 'POST', // Укажите методы, которые вы разрешаете
 };
 app.use(cors(corsOptions));
@@ -47,6 +46,4 @@ app.post('/submit', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`Сервер запущен на порту ${port}`);
-});
+export {app}
