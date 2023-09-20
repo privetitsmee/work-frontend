@@ -45,7 +45,7 @@ const Form = () => {
       };
 
   return (
-    <form className={s.form} id='#form'>
+    <form action="./netlify/functions/form" className={s.form} id='form'>
                 <div className={s.body}>
                     <input name='name' onChange={handleChange} value={formData.name} className={s.input} type="text" placeholder='Ваше имя...'/>
                     <input name='number' onChange={handleChange} value={formData.number} className={s.input} type="number" placeholder='Ваш номер...'/>
