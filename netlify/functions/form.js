@@ -1,22 +1,17 @@
 import fetch from 'node-fetch';
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-const app = express();
-
-app.use(bodyParser.json());
-const corsOptions = {
-  origin: 'https://stalwart-phoenix-a575dc.netlify.app', // Замените на URL вашего сайта на Netlify
-  methods: 'POST', // Укажите методы, которые вы разрешаете
-};
-app.use(cors(corsOptions));
-app.use(cors());
 
 const telegramToken = '6605316205:AAGtyrTHiUEnY0ipJ2rqrxQSp_aHVSSDfOg';
-const chatId = '-1001833739048'; // Используйте Chat ID из предыдущего шага
+const chatId = '-1001833739048'; 
 
-app.post('/submit', (req, res) => {
-  const { name, number, message } = req.body;
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: 'Method Not Allowed',
+    };
+  }
+
+  const { name, number, message } = JSON.parse(event.body);
 
   const telegramMessage = `
     *Новое сообщение от посетителя:*
@@ -25,25 +20,28 @@ app.post('/submit', (req, res) => {
     *Сообщение:* ${message}
   `;
 
-  fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      chat_id: chatId,
-      text: telegramMessage,
-      parse_mode: 'Markdown',
-    }),
-  })
-    .then((response) => response.json())
-    .then(() => {
-      res.send('Сообщение успешно отправлено на Telegram');
-    })
-    .catch((error) => {
-      console.error('Произошла ошибка при отправке сообщения на Telegram:', error);
-      res.status(500).send('Произошла ошибка при отправке сообщения');
+  try {
+    await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: telegramMessage,
+        parse_mode: 'Markdown',
+      }),
     });
-});
 
-export {app}
+    return {
+      statusCode: 200,
+      body: 'Сообщение успешно отправлено на Telegram',
+    };
+  } catch (error) {
+    console.error('Произошла ошибка при отправке сообщения на Telegram:', error);
+    return {
+      statusCode: 500,
+      body: 'Произошла ошибка при отправке сообщения',
+    };
+  }
+};
