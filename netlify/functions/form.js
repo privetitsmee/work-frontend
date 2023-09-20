@@ -12,7 +12,7 @@ app.use(cors());
 const telegramToken = '6605316205:AAGtyrTHiUEnY0ipJ2rqrxQSp_aHVSSDfOg';
 const chatId = '-1001833739048'; // Используйте Chat ID из предыдущего шага
 
-app.post('/.netlify/functions/form', (req, res) => {
+app.post('/netlify/functions/form', (req, res) => {
   const { name, number, message } = req.body;
 
   const telegramMessage = `
