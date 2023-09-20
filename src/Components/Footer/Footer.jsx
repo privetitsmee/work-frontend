@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import s from './Footer.module.css'
-import axios  from 'axios'
 import Form from './Form'
 
 const Footer = () => {

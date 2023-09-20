@@ -89,7 +89,7 @@ const Navigation = (props) => {
                 </div>
 
               <div> 
-                <img className={s.desktop} src="./img/home.svg" alt="photo"></img>
+                <img className={s.desktop} src="./img/home.svg"></img>
               </div>
 
               </div>
