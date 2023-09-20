@@ -23,7 +23,7 @@ const Form = () => {
     
         try {
           // Отправляем данные на сервер
-          const response = await axios.post('http://localhost:3001/submit', formData);
+          const response = await axios.post('/.netlify/functions/form', formData);
     
           if (response.status === 200) {
             // Успешное сообщение о отправке
@@ -45,7 +45,7 @@ const Form = () => {
       };
 
   return (
-    <form action="/.netlify/functions/form" className={s.form} id='form'>
+    <form className={s.form} id='form'>
                 <div className={s.body}>
                     <input name='name' onChange={handleChange} value={formData.name} className={s.input} type="text" placeholder='Ваше имя...'/>
                     <input name='number' onChange={handleChange} value={formData.number} className={s.input} type="number" placeholder='Ваш номер...'/>
