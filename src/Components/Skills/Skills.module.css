@@ -1,0 +1,88 @@
+.skills{
+    background-color: rgba(0, 0, 0, 0.342);
+
+    padding-top: 80px;
+    padding-bottom: 160px;
+}
+
+.title{
+    color: white;
+}
+
+.whyMe{
+    display: flex;
+}
+
+.whyContainer{
+    background-color: rgba(73, 83, 173, 0.144) ;
+
+    display: flex;
+
+    margin-right: 20px;
+
+    box-shadow: 10px 6px 7px 4px rgba(0,0,0,0.66);
+
+}
+
+.whyBody{
+    display: flex;
+    flex-direction: column;
+    
+
+    padding: 20px;
+}
+
+.subtitle{
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid white;
+
+    color: white;
+}
+
+.text{
+    color: white;
+
+    
+}
+
+@media (min-width: 769px) and (max-width: 1200px){
+    .whyMe{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .whyContainer{
+        display: block;
+
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px){
+    .whyMe{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .whyContainer{
+        display: block;
+
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px){
+    .whyMe{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .whyContainer{
+        display: block;
+
+        margin-bottom: 20px;
+    }
+
+}

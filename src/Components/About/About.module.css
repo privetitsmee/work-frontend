@@ -1,0 +1,103 @@
+.about{
+    margin-top: 120px;
+}
+
+.title{
+    color: white;
+    padding-bottom: 80px;
+}
+
+.text{
+    border-radius: 5px;
+
+    background-color: rgba(73, 83, 173, 0.5) ;
+    color: white;
+
+    padding: 20px;
+
+    font-size: 26px;
+
+    max-width: 900px;
+    margin: 0 auto;
+
+    box-shadow: 10px 6px 7px 4px rgba(0,0,0,0.66);
+}
+
+.text::before {
+    content: '';
+    background-image: url('/public/img/circle.png');
+
+    position: absolute;
+  
+    width: 128px;
+    height: 128px;
+
+    display: flex;
+
+    top: 870px;
+    right: 2px;
+
+    opacity: 0.7;
+  
+  }
+
+  .stack{
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .stack::before {
+    content: '';
+    background-image: url('/public/img/circle.png');
+
+    position: absolute;
+  
+    width: 128px;
+    height: 128px;
+
+    display: flex;
+    top: -130px;
+    left: 20px;
+
+    opacity: 0.7;
+  
+  }
+
+  .subtitle{
+    color: white;
+    padding-bottom: 30px;
+  }
+
+  .bodyImg{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .bodyImg::before {
+    content: '';
+    background-image: url('/public/img/circle.png');
+
+    position: absolute;
+  
+    width: 128px;
+    height: 128px;
+
+    display: flex;
+    top: 150px;
+    right: 0px;
+
+    opacity: 0.7;
+  
+  }
+
+.img{
+    width: 80px;
+}
+
+@media (max-width: 480px){
+  .bodyImg{
+    gap: 20px;
+  }
+}
