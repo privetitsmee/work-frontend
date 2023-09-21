@@ -12,7 +12,7 @@ app.use(cors());
 const telegramToken = '6605316205:AAGtyrTHiUEnY0ipJ2rqrxQSp_aHVSSDfOg';
 const chatId = '-1001833739048'; // Используйте Chat ID из предыдущего шага
 
-app.post('/form', (req, res) => {
+app.post('/submit', (req, res) => {
   const { name, number, message } = req.body;
 
   const telegramMessage = `
