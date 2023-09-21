@@ -23,7 +23,7 @@ const Form = () => {
     
         try {
           // Отправляем данные на сервер
-          const response = await axios.post('/.netlify/functions/form', formData);
+          const response = await axios.post('/.netlify/functions/form.js', formData);
     
           if (response.status === 200) {
             // Успешное сообщение о отправке
