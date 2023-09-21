@@ -63,6 +63,8 @@ exports.handler = async (event) => {
   try {
     const { name, number, message } = JSON.parse(event.body);
 
+    console.log('Received request:', event.body)
+
     const telegramMessage = `
       *Новое сообщение от посетителя:*
       *Имя:* ${name}
