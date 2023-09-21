@@ -6,11 +6,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
-// const corsOptions = {
-//   origin: 'https://main--stalwart-phoenix-a575dc.netlify.app/', // Замените на URL вашего сайта на Netlify
-//   methods: 'POST', // Укажите методы, которые вы разрешаете
-// };
-app.use(cors(corsOptions));
+app.use(cors());
 
 const telegramToken = '6605316205:AAGtyrTHiUEnY0ipJ2rqrxQSp_aHVSSDfOg';
 const chatId = '-1001833739048'; // Используйте Chat ID из предыдущего шага
@@ -36,16 +32,20 @@ app.post('/submit', (req, res) => {
       parse_mode: 'Markdown',
     }),
   })
-    .then((response) => response.json())
-    .then(() => {
-      res.send('Сообщение успешно отправлено на Telegram');
+  .then((response) => response.json())
+  .then(() => {
+    res.send('Сообщение успешно отправлено на Telegram');
     })
     .catch((error) => {
       console.error('Произошла ошибка при отправке сообщения на Telegram:', error);
       res.status(500).send('Произошла ошибка при отправке сообщения');
     });
-});
+  });
 
 app.listen(port, () => {
   console.log(`Сервер запущен на порту ${port}`);
 });
+  // const corsOptions = {
+  //   origin: 'https://main--stalwart-phoenix-a575dc.netlify.app/', // Замените на URL вашего сайта на Netlify
+  //   methods: 'POST', // Укажите методы, которые вы разрешаете
+  // };

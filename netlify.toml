@@ -1,6 +1,12 @@
-# Настройки в [build] являются глобальными и применяются ко всем контекстам
-# при отсутствии более специфичных настроек (настроек для определенных контекстов)
 [build]
-  # Директория с файлами, которые должны быть прочитаны перед сборкой проекта
-  # По умолчанию таковой является корневая директория
-  functions = ".netlify/functions"
+  functions = "/.netlify/functions"
+
+  [functions]
+  directory = "/.netlify/functions"
+  node_bundler = "esbuild"
+
+
+[[redirects]]
+  from = "/api/*"
+  to = ".netlify/functions/:splat" # Замените на порт, на котором работают функции Netlify в режиме разработки
+  status = 200

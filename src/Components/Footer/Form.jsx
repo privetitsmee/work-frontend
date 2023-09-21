@@ -23,11 +23,12 @@ const Form = () => {
     
         try {
           // Отправляем данные на сервер
-          const response = await axios.post('/.netlify/functions/form.js', formData);
+          const response = await axios.post('/api/form', formData);
     
           if (response.status === 200) {
             // Успешное сообщение о отправке
             console.log('Сообщение успешно отправлено');
+            
 
             setFormData({
               name: '',
@@ -38,6 +39,7 @@ const Form = () => {
           } else {
             // Обработка ошибки отправки
             console.error('Произошла ошибка при отправке сообщения');
+            console.log(response)
           }
         } catch (error) {
           console.error('Произошла ошибка при отправке сообщения', error);
